@@ -36,7 +36,7 @@ class NoteList extends React.Component {
 
       return (
         <li key={i}>
-          {n.body}
+          {n.body} - {n.owner}
         </li>
       );
     });
