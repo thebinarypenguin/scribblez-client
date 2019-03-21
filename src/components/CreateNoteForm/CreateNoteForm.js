@@ -16,6 +16,9 @@ class CreateNoteForm extends React.Component {
     const body       = ev.target['note-body'].value;
     const visibility = ev.target['note-visibility'].value;
 
+    ev.target['note-body'].value = '';
+    ev.target['note-visibility'].value = 'public';
+
     this.props.onSubmit({ body, visibility });
   }
 

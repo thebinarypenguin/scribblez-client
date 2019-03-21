@@ -66,6 +66,7 @@ const updateNote = function (noteId, payload) {
   return fetch(`${config.api_root}/notes/${noteId}`, {
     method: 'PATCH',
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(payload),
@@ -75,7 +76,7 @@ const updateNote = function (noteId, payload) {
       throw new Error(res.status);
     }
 
-    return res.json();
+    return true;
   });
 };
 

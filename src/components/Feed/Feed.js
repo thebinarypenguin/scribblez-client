@@ -32,6 +32,7 @@ class Feed extends React.Component {
     } else {
 
       links = [
+        { name: 'Feed',    target: '/feed'    },
         { name: 'Sign Up', target: '/sign-up' },
         { name: 'Sign In', target: '/sign-in' },
       ];

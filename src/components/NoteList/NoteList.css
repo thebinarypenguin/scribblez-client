@@ -14,6 +14,10 @@
   margin-bottom: 1rem;
 }
 
+.NoteContent.editable {
+  background-color: #fbefb3;
+}
+
 .NoteMeta {
   display: flex;
   justify-content: space-between;
@@ -39,4 +43,15 @@
 .NoteControls button {
   padding: 3px 6px;
   width: 100%;
+}
+
+textarea {
+  resize:none;
+  width: 100%;
+  padding: 6px;
+}
+
+select {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }

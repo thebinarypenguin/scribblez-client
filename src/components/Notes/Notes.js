@@ -20,7 +20,10 @@ class Notes extends React.Component {
 
     this.generateLinks = this.generateLinks.bind(this);
     this.createNote    = this.createNote.bind(this);
+    this.editNote      = this.editNote.bind(this);
     this.deleteNote    = this.deleteNote.bind(this);
+    this.saveNote      = this.saveNote.bind(this);
+    this.cancelNote    = this.cancelNote.bind(this);
   }
 
   generateLinks() {
@@ -38,6 +41,7 @@ class Notes extends React.Component {
     } else {
 
       links = [
+        { name: 'Feed',    target: '/feed'    },
         { name: 'Sign Up', target: '/sign-up' },
         { name: 'Sign In', target: '/sign-in' },
       ];
@@ -75,8 +79,62 @@ class Notes extends React.Component {
       });
   }
 
+  saveNote(noteId, payload) {
+
+    NotesService
+      .updateNote(noteId, payload)
+      .then((id) => {
+
+        return NotesService
+        .getAllNotes()
+        .then((notes) => {
+
+          this.setState({ notes });
+        })
+      });
+  }
+
   deleteNote(noteId) {
 
+    NotesService
+      .deleteNote(noteId)
+      .then((id) => {
+
+        return NotesService
+        .getAllNotes()
+        .then((notes) => {
+
+          this.setState({ notes });
+        })
+      });
+  }
+
+  editNote(noteId) {
+
+    const newNotes = this.state.notes.map((n) => {
+      if (n.id === noteId) {
+        n._editable = true;
+      } else {
+        n._editable = false;
+      }
+
+      return n;
+    });
+
+    this.setState({notes: newNotes});
+  }
+
+  cancelNote() {
+
+    const newNotes = this.state.notes.map((n) => {
+      if (n._editable) {
+        n._editable = false;
+      }
+
+      return n;
+    });
+
+    this.setState({notes: newNotes});
   }
 
   render() {
@@ -90,7 +148,13 @@ class Notes extends React.Component {
 
           <CreateNoteForm onSubmit={this.createNote}/>
 
-          <NoteList notes={this.state.notes} />
+          <NoteList
+            notes={this.state.notes}
+            onEdit={this.editNote}
+            onDelete={this.deleteNote}
+            onSave={this.saveNote}
+            onCancel={this.cancelNote}
+            />
 
         </div>
 
