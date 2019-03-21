@@ -94,7 +94,7 @@ const deleteNote = function (noteId) {
       throw new Error(res.status);
     }
 
-    return res.json();
+    return true;
   });
 };
 
