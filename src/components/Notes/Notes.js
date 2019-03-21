@@ -1,7 +1,9 @@
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TopBar from '../TopBar/TopBar';
+import CreateNoteForm from '../CreateNoteForm/CreateNoteForm';
 import NoteList from '../NoteList/NoteList';
+import NotesService from '../../services/NotesService';
 
 import './Notes.css';
 
@@ -17,6 +19,8 @@ class Notes extends React.Component {
     };
 
     this.generateLinks = this.generateLinks.bind(this);
+    this.createNote    = this.createNote.bind(this);
+    this.deleteNote    = this.deleteNote.bind(this);
   }
 
   generateLinks() {
@@ -45,8 +49,34 @@ class Notes extends React.Component {
   componentDidMount() {
 
     if (!this.context.user) {
-      this.props.history.push('/sign-in');
+      return this.props.history.push('/sign-in');
     }
+
+    NotesService
+      .getAllNotes()
+      .then((notes) => {
+
+        this.setState({ notes });
+      })
+  }
+
+  createNote(payload) {
+
+    NotesService
+      .createNote(payload)
+      .then((id) => {
+
+        return NotesService
+        .getAllNotes()
+        .then((notes) => {
+
+          this.setState({ notes });
+        })
+      });
+  }
+
+  deleteNote(noteId) {
+
   }
 
   render() {
@@ -54,28 +84,15 @@ class Notes extends React.Component {
     return (
       <div id="site-container">
 
-      <div id="notes-container">
+        <div id="notes-container">
 
-      <TopBar links={this.generateLinks()} />
+          <TopBar links={this.generateLinks()} />
 
-        <form id="new-note-form">
+          <CreateNoteForm onSubmit={this.createNote}/>
 
-            <textarea id="note-body" rows="1" placeholder="New note"></textarea>
+          <NoteList notes={this.state.notes} />
 
-            <select id="note-visibility">
-              <option value="public">public</option>
-              <option value="private">private</option>
-            </select>
-
-            <button id="create-note" type="submit">Create</button>
-
-
-        </form>
-
-
-        <NoteList />
-
-      </div>
+        </div>
 
     </div>
     );

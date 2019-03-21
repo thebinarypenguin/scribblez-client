@@ -1,36 +1,23 @@
 import React from 'react';
-import NotesService from '../../services/NotesService';
 
 import './NoteList.css';
 
 class NoteList extends React.Component {
 
+  static defaultProps = {
+    notes: [],
+  }
+
   constructor(props) {
 
     super(props);
 
-    this.state = {
-      notes: [],
-    };
-
     this.generateItems = this.generateItems.bind(this);
-  }
-
-  componentDidMount() {
-
-    NotesService
-      .getAllNotes()
-      .then((notes) => {
-        this.setState({ notes });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }
 
   generateItems() {
 
-    return this.state.notes.map((note, i) => {
+    return this.props.notes.map((note, i) => {
 
       return (
         <li key={i}>
