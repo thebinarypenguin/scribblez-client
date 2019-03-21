@@ -28,7 +28,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      user : null,
+      user : null, // don't think i need this, maybe replace with a contextValue object
     };
 
     this.maintainAuthTimeout = null;
@@ -38,6 +38,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
+    // THIS IS THE WRONG PLACE TO PUT THIS
+    // IT SHOULD BE CALLED EVERYTIME A ROUTE/PAGE IS ENTERED
 
     const previouslyExistingToken = window.localStorage.getItem('token');
 
