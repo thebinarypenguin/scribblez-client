@@ -1,0 +1,25 @@
+.FeedList {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.FeedList li {
+  border:1px solid lightgrey;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.FeedItemMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.FeedItemAuthor {
+  font-weight: bold;
+}
+
+.FeedItemDate {}
+
+
+.FeedItemBody {}

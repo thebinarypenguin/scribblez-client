@@ -1,6 +1,7 @@
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TopBar from '../TopBar/TopBar';
+import FeedList from '../FeedList/FeedList';
 
 import './Feed.css';
 
@@ -46,82 +47,9 @@ class Feed extends React.Component {
 
         <div id="feed-container">
 
-        <TopBar links={this.generateLinks()} />
+          <TopBar links={this.generateLinks()} />
 
-          <ul className="note-list">
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-            <li className="note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </li>
-          </ul>
+          <FeedList />
 
         </div>
 
