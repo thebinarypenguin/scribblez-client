@@ -1,0 +1,42 @@
+.NoteList {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.NoteList li {
+  display: flex;
+}
+
+.NoteContent {
+  flex-grow: 1;
+  border:1px solid lightgrey;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.NoteMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.NoteAuthor {
+  font-weight: bold;
+}
+
+.NoteDate {}
+
+.NoteBody {}
+
+.NoteControls {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.NoteControls button {
+  padding: 3px 6px;
+  width: 100%;
+}

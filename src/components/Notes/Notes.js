@@ -1,24 +1,52 @@
 import React from 'react';
-import NotesService from '../../services/NotesService';
+import UserContext from '../../contexts/UserContext';
+import TopBar from '../TopBar/TopBar';
+import NoteList from '../NoteList/NoteList';
 
 import './Notes.css';
 
 class Notes extends React.Component {
 
-  state = {
-    notes: [],
-  };
+  static contextType = UserContext;
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      notes: [],
+    };
+
+    this.generateLinks = this.generateLinks.bind(this);
+  }
+
+  generateLinks() {
+
+    let links = [];
+
+    if (this.context.user) {
+
+      links = [
+        { name: 'Feed',     target: '/feed'     },
+        { name: 'Notes',    target: '/notes'    },
+        { name: 'Sign Out', target: '/sign-out' },
+      ];
+
+    } else {
+
+      links = [
+        { name: 'Sign Up', target: '/sign-up' },
+        { name: 'Sign In', target: '/sign-in' },
+      ];
+    }
+
+    return links;
+  }
 
   componentDidMount() {
-    NotesService
-      .getAllNotes()
-      .then((notes) => {
-        this.setState({ notes });
-        console.log(this.state.notes);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    if (!this.context.user) {
+      this.props.history.push('/sign-in');
+    }
   }
 
   render() {
@@ -28,12 +56,7 @@ class Notes extends React.Component {
 
       <div id="notes-container">
 
-        <div id="top-nav">
-          <h1>Scribblez</h1>
-          <ul>
-            <li><a href="/home.html">Sign Out</a></li>
-          </ul>
-        </div>
+      <TopBar links={this.generateLinks()} />
 
         <form id="new-note-form">
 
@@ -50,134 +73,7 @@ class Notes extends React.Component {
         </form>
 
 
-        <ul className="note-list">
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-          <li className="note-with-controls">
-
-            <div className="note-note">
-              <div className="note-meta">
-                <div className="note-author">Some User</div>
-                <div className="note-date">Feb 4, 2019</div>
-              </div>
-              <div className="note-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Reiciendis ex accusantium culpa maiores quibusdam est praesentium
-                deleniti error nam quia, facere iste. Accusamus autem dolore, eum
-                dolorem officia quo veritatis!
-              </div>
-            </div>
-
-            <div className="note-controls">
-              <button className="edit">Edit</button>
-              <button className="delete">Delete</button>
-            </div>
-
-          </li>
-        </ul>
+        <NoteList />
 
       </div>
 

@@ -5,6 +5,7 @@ import UserContext from '../../contexts/UserContext';
 import Home from '../Home/Home';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
+import SignOut from '../SignOut/SignOut';
 import Feed from '../Feed/Feed'
 import Notes from '../Notes/Notes';
 import AuthService from '../../services/AuthService';
@@ -58,6 +59,11 @@ class App extends React.Component {
       // otherwise...
       this.destroyAuth();
     }
+  }
+
+  componentWillUnmount() {
+
+    clearTimeout(this.maintainAuthTimeout);
   }
 
   maintainAuth(token) {
@@ -137,6 +143,7 @@ class App extends React.Component {
           <Route exact path='/' component={Home} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/sign-in' component={SignIn} />
+          <Route path='/sign-out' component={SignOut} />
           <Route path='/feed' component={Feed} />
           <Route path='/notes' component={Notes} />
         </BrowserRouter>
