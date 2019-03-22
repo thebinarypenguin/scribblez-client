@@ -39,9 +39,6 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    // THIS IS THE WRONG PLACE TO PUT THIS
-    // IT SHOULD BE CALLED EVERYTIME A ROUTE/PAGE IS ENTERED
-
     const previouslyExistingToken = window.localStorage.getItem('token');
 
     if (previouslyExistingToken) {
