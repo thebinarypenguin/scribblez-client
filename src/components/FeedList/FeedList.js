@@ -1,4 +1,5 @@
 import React from 'react';
+import { DateTime } from "luxon";
 import FeedService from '../../services/FeedService';
 
 import './FeedList.css';
@@ -30,13 +31,19 @@ class FeedList extends React.Component {
 
   generateItems() {
 
+    const getDateString = function (item) {
+
+      const str = item.updated_at || item.created_at;
+      return DateTime.fromISO(str).toLocaleString(DateTime.DATE_MED);
+    };
+
     return this.state.items.map((item, i) => {
 
       return (
         <li key={i}>
           <div className="FeedItemMeta">
             <div className="FeedItemAuthor">{item.owner}</div>
-            <div className="FeedItemDate">Feb 4, 2019</div>
+            <div className="FeedItemDate">{getDateString(item)}</div>
           </div>
           <div className="FeedItemBody">{item.body}</div>
         </li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { DateTime } from "luxon";
 
 import './NoteList.css';
 
@@ -20,10 +21,14 @@ class NoteList extends React.Component {
 
   generateItems() {
 
+    const getDateString = function (item) {
+
+      const str = item.updated_at || item.created_at;
+      return DateTime.fromISO(str).toLocaleString(DateTime.DATE_MED);
+    };
 
     return this.props.notes.map((note, i) => {
 
-      // test
       if (note._editable) {
 
         return (
@@ -39,7 +44,7 @@ class NoteList extends React.Component {
                     <option value="private">private</option>
                   </select>
                 </div>
-                <div className="NoteDate">Feb 4, 2019</div>
+                <div className="NoteDate">{getDateString(note)}</div>
               </div>
 
               <div className="NoteBody"><textarea ref={this.noteBodyEditable} defaultValue={note.body} /></div>
@@ -62,9 +67,7 @@ class NoteList extends React.Component {
         );
       }
 
-      // if note._editable
-        // edit form with save (call prop callback) and cancel (goto /notes) buttons
-        // if body is empty set to empty string '', i think that will pass the db constraints
+
       return (
         <li key={i}>
 
@@ -72,7 +75,7 @@ class NoteList extends React.Component {
 
             <div className="NoteMeta">
               <div className="NoteAuthor">{note.owner} ({note.visibility})</div>
-              <div className="NoteDate">Feb 4, 2019</div>
+              <div className="NoteDate">{getDateString(note)}</div>
             </div>
 
             <div className="NoteBody">{note.body}</div>
