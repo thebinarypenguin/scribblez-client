@@ -24,9 +24,10 @@ class SignUp extends React.Component {
     ev.preventDefault();
 
     const payload = {
-      real_name: ev.target['full-name'].value,
-      username: ev.target['username'].value,
-      password: ev.target['password'].value,
+      real_name     : ev.target['full-name'].value,
+      email_address : ev.target['email_address'].value,
+      username      : ev.target['username'].value,
+      password      : ev.target['password'].value,
     };
 
     console.log('IOU form validation');
@@ -58,6 +59,7 @@ class SignUp extends React.Component {
         <form autoComplete="off" onSubmit={this.handleSubmit}>
 
           <input type="text" id="full-name" placeholder="Name" />
+          <input type="text" id="email_address" placeholder="Email Address" />
           <input type="text" id="username" placeholder="Username" />
           <input type="password" id="password" placeholder="Password" />
           <input type="text" id="password-confirmation" placeholder="Confirm Password" />
