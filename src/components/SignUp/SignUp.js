@@ -62,7 +62,7 @@ class SignUp extends React.Component {
           <input type="text" id="email_address" placeholder="Email Address" />
           <input type="text" id="username" placeholder="Username" />
           <input type="password" id="password" placeholder="Password" />
-          <input type="text" id="password-confirmation" placeholder="Confirm Password" />
+          <input type="password" id="password-confirmation" placeholder="Confirm Password" />
           <button type="submit">Sign Up</button>
 
         </form>
