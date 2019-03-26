@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route} from "react-router-dom";
-import jwtDecode from 'jwt-decode';
 import UserContext from '../../contexts/UserContext';
 import Home from '../Home/Home';
 import SignIn from '../SignIn/SignIn';
@@ -9,27 +8,14 @@ import SignOut from '../SignOut/SignOut';
 import Feed from '../Feed/Feed'
 import Notes from '../Notes/Notes';
 import AuthService from '../../services/AuthService';
+import Utils from '../../services/Utils';
 
 import './App.css';
-import UserService from '../../services/UserService';
-
-const safeJwtDecode = function (jwt) {
-
-  try {
-    return jwtDecode(jwt);
-  } catch (err) {
-    return undefined;
-  }
-};
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      user : null, // don't think i need this, maybe replace with a contextValue object
-    };
 
     this.maintainAuthTimeout = null;
 
@@ -43,7 +29,7 @@ class App extends React.Component {
 
     if (previouslyExistingToken) {
 
-      const payload = safeJwtDecode(previouslyExistingToken);
+      const payload = Utils.parseToken(previouslyExistingToken);
 
       if (payload.exp) {
 
@@ -73,48 +59,35 @@ class App extends React.Component {
     // Persist token
     window.localStorage.setItem('token', token);
 
-    const payload = safeJwtDecode(token);
+    const payload = Utils.parseToken(token);
 
-    UserService
-      .getUserByUsername(payload.username)
-      .then((user) => {
+    // If token has a expiration time
+    if (payload.exp) {
 
-        // Save user data, prob too much data
-        this.setState({ user });
-      })
-      .then(() => {
+      const expirationTime = (payload.exp * 1000) - Date.now();
+      const refreshTime    = expirationTime - (10 * 1000);
 
-        // If token has a expiration time
-        if (payload.exp) {
+      // TODO - clear any previous timeoutIds
+      clearTimeout(this.maintainAuthTimeout);
 
-          const expirationTime = (payload.exp * 1000) - Date.now();
-          const refreshTime    = expirationTime - (10 * 1000);
+      // Schedule a refresh request
+      this.maintainAuthTimeout = setTimeout(() => {
 
-          // TODO - clear any previous timeoutIds
-          clearTimeout(this.maintainAuthTimeout);
+        AuthService
+          .refresh(token)
+          .then((body) => {
 
-          // Schedule a refresh request
-          this.maintainAuthTimeout = setTimeout(() => {
+            // do it again
+            this.maintainAuth(body.token);
+          })
+          .catch((err) => {
 
-            AuthService
-              .refresh(token)
-              .then((body) => {
+            // delete existing auth token
+            this.destroyAuth();
+          });
 
-                // do it again
-                this.maintainAuth(body.token);
-              })
-              .catch((err) => {
-
-                // delete existing auth token
-                this.destroyAuth();
-              });
-
-          }, refreshTime);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }, refreshTime);
+    }
   }
 
   destroyAuth() {
@@ -123,22 +96,13 @@ class App extends React.Component {
 
     window.localStorage.removeItem('token');
 
-    this.setState({ user: null });
-
     console.log('Destroy Token');
   }
 
   render() {
 
-    // TODO move into state to prevent unnecessary renders
-    const contextValue = {};
-
-    contextValue.user   = this.state.user;
-    contextValue.logIn  = this.maintainAuth;
-    contextValue.logOut = this.destroyAuth;
-
     return (
-      <UserContext.Provider value={contextValue} >
+      <UserContext.Provider value={{ logIn: this.maintainAuth, logOut: this.destroyAuth }} >
         <BrowserRouter>
           <Route exact path='/' component={Home} />
           <Route path='/sign-up' component={SignUp} />

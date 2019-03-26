@@ -4,6 +4,7 @@ import TopBar from '../TopBar/TopBar';
 import CreateNoteForm from '../CreateNoteForm/CreateNoteForm';
 import NoteList from '../NoteList/NoteList';
 import NotesService from '../../services/NotesService';
+import Utils from '../../services/Utils';
 
 import './Notes.css';
 
@@ -30,7 +31,7 @@ class Notes extends React.Component {
 
     let links = [];
 
-    if (this.context.user) {
+    if (Utils.isTokenActive(window.localStorage.getItem('token'))) {
 
       links = [
         { name: 'Feed',     target: '/feed'     },
@@ -52,7 +53,7 @@ class Notes extends React.Component {
 
   componentDidMount() {
 
-    if (!this.context.user) {
+    if (!Utils.isTokenActive(window.localStorage.getItem('token'))) {
       return this.props.history.push('/sign-in');
     }
 

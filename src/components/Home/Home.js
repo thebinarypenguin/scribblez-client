@@ -1,6 +1,7 @@
 import React from 'react';
 import UserContext from '../../contexts/UserContext';
 import TopBar from '../TopBar/TopBar';
+import Utils from '../../services/Utils';
 
 import './Home.css';
 
@@ -18,7 +19,7 @@ class Home extends React.Component {
 
     let links = [];
 
-    if (this.context.user) {
+    if (Utils.isTokenActive(window.localStorage.getItem('token'))) {
 
       links = [
         { name: 'Feed',     target: '/feed'     },
