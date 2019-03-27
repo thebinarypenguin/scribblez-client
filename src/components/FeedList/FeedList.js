@@ -41,11 +41,13 @@ class FeedList extends React.Component {
 
       return (
         <li key={i}>
+          <div className="FeedItem">
           <div className="FeedItemMeta">
-            <div className="FeedItemAuthor"><a>{item.real_name} ({item.owner})</a></div>
+            <div className="FeedItemAuthor">{item.real_name} ({item.owner})</div>
             <div className="FeedItemDate">{getDateString(item)}</div>
           </div>
           <div className="FeedItemBody">{item.body}</div>
+          </div>
         </li>
       );
     });
@@ -54,9 +56,11 @@ class FeedList extends React.Component {
   render() {
 
     return (
+      <div className="Container">
       <ul className="FeedList">
         {this.generateItems()}
       </ul>
+      </div>
     );
   }
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import AuthService from '../../services/AuthService';
 import UserService from '../../services/UserService';
 import UserContext from '../../contexts/UserContext';
+import TopBar from '../../components/TopBar/TopBar';
+import Utils from '../../services/Utils';
+
 
 import './SignUp.css';
 
@@ -17,6 +20,31 @@ class SignUp extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.generateLinks = this.generateLinks.bind(this);
+  }
+
+  generateLinks() {
+
+    let links = [];
+
+    if (Utils.isTokenActive(window.localStorage.getItem('token'))) {
+
+      links = [
+        { name: 'Feed',     target: '/feed'     },
+        { name: 'Notes',    target: '/notes'    },
+        { name: 'Sign Out', target: '/sign-out' },
+      ];
+
+    } else {
+
+      links = [
+        { name: 'Feed',    target: '/feed'    },
+        { name: 'Sign Up', target: '/sign-up' },
+        { name: 'Sign In', target: '/sign-in' },
+      ];
+    }
+
+    return links;
   }
 
   handleSubmit(ev) {
@@ -50,6 +78,8 @@ class SignUp extends React.Component {
   render() {
 
     return (
+      <>
+<TopBar links={this.generateLinks()} />
       <div id="site-container">
 
       <div id="sign-up-container">
@@ -70,6 +100,7 @@ class SignUp extends React.Component {
       </div>
 
     </div>
+    </>
     );
   }
 }

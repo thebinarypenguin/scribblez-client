@@ -1,4 +1,27 @@
 #TopBar {
+  background-color: #5a89b9;
+  color: #f6f3f5;
+
+  position: sticky;
+  top:0px;
+}
+
+#TopBar a,
+#TopBar a:link,
+#TopBar a:active,
+#TopBar a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#TopBar a:hover {
+  font-weight: bold;
+}
+
+#TopBar .Container {
+  width: 750px;
+  margin: auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,4 +35,5 @@
 #TopBar li {
   display:inline-block;
   margin-left: 1rem;
+  font-size: 1.2rem;
 }

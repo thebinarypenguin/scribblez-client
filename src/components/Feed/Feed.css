@@ -17,7 +17,7 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-#site-container {
+.site-container {
   width: 750px;
   margin: auto;
 }

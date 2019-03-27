@@ -1,17 +1,18 @@
 .NoteList {
   list-style-type: none;
-  padding: 1rem;
+  background-color: #ffffff;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
 }
 
 .NoteList li {
   display: flex;
+  border-bottom: 1px solid #dadada;
 }
 
 .NoteContent {
   flex-grow: 1;
-  border:1px solid lightgrey;
-  padding: 0.25rem;
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .NoteContent.editable {
@@ -28,7 +29,10 @@
   font-weight: bold;
 }
 
-.NoteDate {}
+.NoteDate {
+  color: #707070;
+  font-size: 0.9rem;
+}
 
 .NoteBody {}
 
@@ -37,7 +41,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  background-color: #dadada;
 }
 
 .NoteControls button {

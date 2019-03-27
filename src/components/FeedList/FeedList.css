@@ -1,12 +1,23 @@
+.Container {
+  width: 750px;
+  margin: auto;
+}
+
 .FeedList {
   list-style-type: none;
-  padding: 1rem;
+  /* padding: 1rem; */
+  background-color: #ffffff;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
 }
 
 .FeedList li {
-  border:1px solid lightgrey;
+  border-bottom: 1px solid #dadada;
+}
+
+.FeedList .FeedItem {
   padding: 0.25rem;
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .FeedItemMeta {
@@ -19,7 +30,10 @@
   font-weight: bold;
 }
 
-.FeedItemDate {}
+.FeedItemDate {
+  color: #707070;
+  font-size: 0.9rem;
+}
 
 
 .FeedItemBody {}

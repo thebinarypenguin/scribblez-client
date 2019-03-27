@@ -32,10 +32,13 @@ class TopBar extends React.Component {
 
     return (
       <div id="TopBar">
-        <h1>Scribblez</h1>
-        <ul>
-          { this.generateLinks() }
-        </ul>
+
+        <div className="Container">
+          <Link to="/"><h1>Scribblez</h1></Link>
+          <ul>
+            { this.generateLinks() }
+          </ul>
+        </div>
     </div>
     );
   }

@@ -45,17 +45,10 @@ class Feed extends React.Component {
   render() {
 
     return (
-      <div id="site-container">
-
-        <div id="feed-container">
-
-          <TopBar links={this.generateLinks()} />
-
-          <FeedList />
-
-        </div>
-
-      </div>
+      <>
+        <TopBar links={this.generateLinks()} />
+        <FeedList />
+      </>
     );
   }
 }

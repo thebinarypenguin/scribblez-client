@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './CreateNoteForm.css';
+
 class CreateNoteForm extends React.Component {
 
   constructor(props) {
@@ -25,8 +27,8 @@ class CreateNoteForm extends React.Component {
   render() {
 
     return (
-
-      <form id="new-note-form" onSubmit={this.handleSubmit}>
+      <div className="Container">
+      <form id="CreateNoteForm" onSubmit={this.handleSubmit}>
 
         <textarea id="note-body" rows="1" placeholder="New note"></textarea>
 
@@ -38,6 +40,7 @@ class CreateNoteForm extends React.Component {
         <button id="create-note" type="submit">Create</button>
 
     </form>
+    </div>
     )
   }
 }

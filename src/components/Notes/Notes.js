@@ -141,10 +141,8 @@ class Notes extends React.Component {
   render() {
 
     return (
-      <div id="site-container">
 
-        <div id="notes-container">
-
+<>
           <TopBar links={this.generateLinks()} />
 
           <CreateNoteForm onSubmit={this.createNote}/>
@@ -156,10 +154,8 @@ class Notes extends React.Component {
             onSave={this.saveNote}
             onCancel={this.cancelNote}
             />
+</>
 
-        </div>
-
-    </div>
     );
   }
 }

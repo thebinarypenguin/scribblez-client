@@ -97,9 +97,11 @@ class NoteList extends React.Component {
   render() {
 
     return (
+      <div className="Container">
       <ul className="NoteList">
         {this.generateItems()}
       </ul>
+      </div>
     );
   }
 }
