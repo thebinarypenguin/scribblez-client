@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch} from "react-router-dom";
 import UserContext from '../../contexts/UserContext';
 import Home from '../Home/Home';
 import SignIn from '../SignIn/SignIn';
@@ -104,12 +104,15 @@ class App extends React.Component {
     return (
       <UserContext.Provider value={{ logIn: this.maintainAuth, logOut: this.destroyAuth }} >
         <BrowserRouter>
-          <Route exact path='/' component={Home} />
-          <Route path='/sign-up' component={SignUp} />
-          <Route path='/sign-in' component={SignIn} />
-          <Route path='/sign-out' component={SignOut} />
-          <Route path='/feed' component={Feed} />
-          <Route path='/notes' component={Notes} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/sign-up' component={SignUp} />
+            <Route path='/sign-in' component={SignIn} />
+            <Route path='/sign-out' component={SignOut} />
+            <Route path='/feed' component={Feed} />
+            <Route path='/notes' component={Notes} />
+            <Redirect to="/" />
+          </Switch>
         </BrowserRouter>
       </UserContext.Provider>
     );
