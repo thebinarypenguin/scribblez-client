@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  id="SignUp"
+>
+  <div
+    id="TopBar"
+  >
+    <div
+      className="Container"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <h1>
+          Scribblez
+        </h1>
+      </a>
+      <ul>
+        <li>
+          <a
+            href="/feed"
+            onClick={[Function]}
+          >
+            Feed
+          </a>
+        </li>
+        <li>
+          <a
+            href="/sign-up"
+            onClick={[Function]}
+          >
+            Sign Up
+          </a>
+        </li>
+        <li>
+          <a
+            href="/sign-in"
+            onClick={[Function]}
+          >
+            Sign In
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="dialog"
+  >
+    <h2>
+      Sign Up
+    </h2>
+    <form
+      autoComplete="off"
+      onSubmit={[Function]}
+    >
+      <input
+        id="full-name"
+        placeholder="Name"
+        type="text"
+      />
+      <input
+        id="email_address"
+        placeholder="Email Address"
+        type="text"
+      />
+      <input
+        id="username"
+        placeholder="Username"
+        type="text"
+      />
+      <input
+        id="password"
+        placeholder="Password"
+        type="password"
+      />
+      <input
+        id="password-confirmation"
+        placeholder="Confirm Password"
+        type="password"
+      />
+      <button
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+`;

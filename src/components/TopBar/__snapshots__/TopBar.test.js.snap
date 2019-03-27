@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  id="TopBar"
+>
+  <div
+    className="Container"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <h1>
+        Scribblez
+      </h1>
+    </a>
+    <ul />
+  </div>
+</div>
+`;

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  id="Home"
+>
+  <div
+    id="TopBar"
+  >
+    <div
+      className="Container"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <h1>
+          Scribblez
+        </h1>
+      </a>
+      <ul>
+        <li>
+          <a
+            href="/feed"
+            onClick={[Function]}
+          >
+            Feed
+          </a>
+        </li>
+        <li>
+          <a
+            href="/sign-up"
+            onClick={[Function]}
+          >
+            Sign Up
+          </a>
+        </li>
+        <li>
+          <a
+            href="/sign-in"
+            onClick={[Function]}
+          >
+            Sign In
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="Container"
+  >
+    <div
+      className="Hero"
+    >
+      <p>
+        Hero Content
+      </p>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum molestias dolor rem accusantium consectetur molestiae illo labore, officiis eius, fugit recusandae, id assumenda ipsam. Ratione explicabo facilis vel praesentium cumque. Doloribus sit ipsam commodi doloremque quisquam repellendus, tempora reiciendis fuga rem aspernatur, voluptatem nisi explicabo delectus dolore dicta omnis odio aliquam culpa.
+    </p>
+  </div>
+</div>
+`;

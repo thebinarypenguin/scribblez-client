@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Container"
+>
+  <form
+    id="CreateNoteForm"
+    onSubmit={[Function]}
+  >
+    <textarea
+      id="note-body"
+      placeholder="New note"
+      rows="1"
+    />
+    <select
+      id="note-visibility"
+    >
+      <option
+        value="public"
+      >
+        public
+      </option>
+      <option
+        value="private"
+      >
+        private
+      </option>
+    </select>
+    <button
+      id="create-note"
+      type="submit"
+    >
+      Create
+    </button>
+  </form>
+</div>
+`;
