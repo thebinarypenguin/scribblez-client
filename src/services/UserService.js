@@ -34,7 +34,7 @@ const createUser = function (payload) {
       throw new Error(res.status);
     }
 
-    return res.json();
+    return true;
   });
 };
 
