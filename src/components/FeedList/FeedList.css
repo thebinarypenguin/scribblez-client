@@ -1,9 +1,4 @@
-.Container {
-  width: 750px;
-  margin: auto;
-}
-
-.FeedList {
+#FeedList {
   list-style-type: none;
   /* padding: 1rem; */
   background-color: #ffffff;
@@ -11,11 +6,11 @@
   border-right: 1px solid #dadada;
 }
 
-.FeedList li {
+#FeedList li {
   border-bottom: 1px solid #dadada;
 }
 
-.FeedList .FeedItem {
+#FeedList .FeedItem {
   padding: 0.25rem;
   padding: 1rem;
 }
@@ -35,5 +30,4 @@
   font-size: 0.9rem;
 }
 
-
-.FeedItemBody {}
+#FeedItemBody {}

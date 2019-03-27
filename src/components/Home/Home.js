@@ -42,13 +42,12 @@ class Home extends React.Component {
   render() {
 
     return (
+      <div id="Home">
 
-
-<>
         <TopBar links={this.generateLinks()} />
 
         <div className="Container">
-          <div id="hero">
+          <div className="Hero">
             <p>Hero Content</p>
           </div>
 
@@ -61,9 +60,7 @@ class Home extends React.Component {
             nisi explicabo delectus dolore dicta omnis odio aliquam culpa.
           </p>
         </div>
-
-
-</>
+      </div>
     );
   }
 }

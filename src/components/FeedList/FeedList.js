@@ -57,9 +57,9 @@ class FeedList extends React.Component {
 
     return (
       <div className="Container">
-      <ul className="FeedList">
-        {this.generateItems()}
-      </ul>
+        <ul id="FeedList">
+          {this.generateItems()}
+        </ul>
       </div>
     );
   }

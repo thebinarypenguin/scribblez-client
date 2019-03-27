@@ -1,0 +1,24 @@
+#SignUp .dialog {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#SignUp h2 {
+  margin-bottom: 2rem;
+}
+
+
+#SignUp input {
+  display: block;
+  margin: auto;
+  width: 20rem;
+  padding: 3px 6px;
+  margin-bottom: 1rem;
+}
+
+
+#SignUp button {
+  padding: 3px 6px;
+}

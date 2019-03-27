@@ -45,10 +45,10 @@ class Feed extends React.Component {
   render() {
 
     return (
-      <>
+      <div id="Feed">
         <TopBar links={this.generateLinks()} />
         <FeedList />
-      </>
+      </div>
     );
   }
 }

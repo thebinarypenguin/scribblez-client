@@ -142,19 +142,19 @@ class Notes extends React.Component {
 
     return (
 
-<>
-          <TopBar links={this.generateLinks()} />
+      <div id="Notes">
+        <TopBar links={this.generateLinks()} />
 
-          <CreateNoteForm onSubmit={this.createNote}/>
+        <CreateNoteForm onSubmit={this.createNote}/>
 
-          <NoteList
-            notes={this.state.notes}
-            onEdit={this.editNote}
-            onDelete={this.deleteNote}
-            onSave={this.saveNote}
-            onCancel={this.cancelNote}
-            />
-</>
+        <NoteList
+          notes={this.state.notes}
+          onEdit={this.editNote}
+          onDelete={this.deleteNote}
+          onSave={this.saveNote}
+          onCancel={this.cancelNote}
+          />
+      </div>
 
     );
   }

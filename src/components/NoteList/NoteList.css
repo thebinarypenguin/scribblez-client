@@ -1,11 +1,11 @@
-.NoteList {
+#NoteList {
   list-style-type: none;
   background-color: #ffffff;
   border-left: 1px solid #dadada;
   border-right: 1px solid #dadada;
 }
 
-.NoteList li {
+#NoteList li {
   display: flex;
   border-bottom: 1px solid #dadada;
 }

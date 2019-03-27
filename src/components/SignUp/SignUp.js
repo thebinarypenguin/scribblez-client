@@ -78,29 +78,28 @@ class SignUp extends React.Component {
   render() {
 
     return (
-      <>
-<TopBar links={this.generateLinks()} />
-      <div id="site-container">
+      <div id="SignUp">
 
-      <div id="sign-up-container">
+        <TopBar links={this.generateLinks()} />
 
-        <h2>Sign Up</h2>
+        <div className="dialog">
 
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <h2>Sign Up</h2>
 
-          <input type="text" id="full-name" placeholder="Name" />
-          <input type="text" id="email_address" placeholder="Email Address" />
-          <input type="text" id="username" placeholder="Username" />
-          <input type="password" id="password" placeholder="Password" />
-          <input type="password" id="password-confirmation" placeholder="Confirm Password" />
-          <button type="submit">Sign Up</button>
+          <form autoComplete="off" onSubmit={this.handleSubmit}>
 
-        </form>
+            <input type="text" id="full-name" placeholder="Name" />
+            <input type="text" id="email_address" placeholder="Email Address" />
+            <input type="text" id="username" placeholder="Username" />
+            <input type="password" id="password" placeholder="Password" />
+            <input type="password" id="password-confirmation" placeholder="Confirm Password" />
+            <button type="submit">Sign Up</button>
+
+          </form>
 
       </div>
 
     </div>
-    </>
     );
   }
 }

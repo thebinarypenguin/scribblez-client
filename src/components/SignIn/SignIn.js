@@ -67,11 +67,10 @@ class SignIn extends React.Component {
   render() {
 
     return (
-      <>
-      <TopBar links={this.generateLinks()} />
-      <div id="site-container">
+      <div id="SignIn">
+        <TopBar links={this.generateLinks()} />
 
-      <div id="sign-in-container">
+        <div className="dialog">
 
         <h2>Sign In</h2>
 
@@ -86,7 +85,6 @@ class SignIn extends React.Component {
       </div>
 
     </div>
-    </>
     );
   }
 }

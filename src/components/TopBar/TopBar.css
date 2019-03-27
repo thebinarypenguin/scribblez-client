@@ -1,7 +1,4 @@
 #TopBar {
-  background-color: #5a89b9;
-  color: #f6f3f5;
-
   position: sticky;
   top:0px;
 }
@@ -19,13 +16,12 @@
 }
 
 #TopBar .Container {
-  width: 750px;
-  margin: auto;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #f6f3f5;
+  background-color: #5a89b9;
 }
 
 #TopBar ul {

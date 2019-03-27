@@ -1,9 +1,4 @@
-#site-container {
-  width: 750px;
-  margin: auto;
-}
-
-#hero {
+#Home .Hero {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +6,7 @@
   padding: 3rem 2rem 4rem 2rem;
 }
 
-#home-container p {
+#Home p {
   padding: 0 1.5rem;
   line-height: 1.5;
 }
