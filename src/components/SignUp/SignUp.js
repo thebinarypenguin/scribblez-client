@@ -68,7 +68,7 @@ class SignUp extends React.Component {
       .then((resp) => {
         console.log(resp)
         this.context.logIn(resp.token);
-        this.props.history.push('/');
+        this.props.history.push('/notes');
       })
       .catch((err) => {
         this.setState({ error: err.message });
