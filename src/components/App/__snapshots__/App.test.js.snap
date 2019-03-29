@@ -49,15 +49,8 @@ exports[`renders the UI as expected 1`] = `
   <div
     className="Container"
   >
-    <div
-      className="Hero"
-    >
-      <p>
-        Hero Content
-      </p>
-    </div>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum molestias dolor rem accusantium consectetur molestiae illo labore, officiis eius, fugit recusandae, id assumenda ipsam. Ratione explicabo facilis vel praesentium cumque. Doloribus sit ipsam commodi doloremque quisquam repellendus, tempora reiciendis fuga rem aspernatur, voluptatem nisi explicabo delectus dolore dicta omnis odio aliquam culpa.
+      Scribblez is a note-sharing service that allows you to share your ideas with the world. Don't like sharing? That's okay you can make your notes private. We won't tell anyone.
     </p>
   </div>
 </div>
