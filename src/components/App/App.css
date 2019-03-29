@@ -1,4 +1,4 @@
 .Container {
-  width: 750px;
+  max-width: 768px;
   margin: auto;
 }

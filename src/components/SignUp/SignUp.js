@@ -58,7 +58,7 @@ class SignUp extends React.Component {
       password      : ev.target['password'].value,
     };
 
-    console.log('IOU form validation');
+    // console.log('IOU form validation');
 
     return UserService
       .createUser(payload)
@@ -66,7 +66,7 @@ class SignUp extends React.Component {
         return AuthService.login(payload.username, payload.password);
       })
       .then((resp) => {
-        console.log(resp)
+        // console.log(resp)
         this.context.logIn(resp.token);
         this.props.history.push('/notes');
       })

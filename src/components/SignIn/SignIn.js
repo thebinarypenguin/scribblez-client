@@ -51,7 +51,7 @@ class SignIn extends React.Component {
 
     const { username, password } = ev.target;
 
-    console.log('IOU form validation');
+    // console.log('IOU form validation');
 
     return AuthService
       .login(username.value, password.value)
@@ -73,6 +73,11 @@ class SignIn extends React.Component {
         <div className="dialog">
 
         <h2>Sign In</h2>
+
+        <ul id="demo-credentials">
+          <li>Demo username: <strong>homer</strong></li>
+          <li>Demo password: <strong>password</strong></li>
+        </ul>
 
         <form autoComplete="off" onSubmit={this.handleSubmit} >
 

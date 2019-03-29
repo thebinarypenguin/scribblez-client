@@ -25,7 +25,7 @@ class FeedList extends React.Component {
         this.setState({ items });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }
 

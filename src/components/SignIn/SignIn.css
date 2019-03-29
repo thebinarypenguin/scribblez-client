@@ -22,3 +22,12 @@
 #SignIn button {
   padding: 3px 6px;
 }
+
+#demo-credentials {
+  list-style-type: none;
+  width: 20rem;
+  margin: auto;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}

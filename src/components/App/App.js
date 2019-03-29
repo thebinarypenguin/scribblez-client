@@ -54,7 +54,7 @@ class App extends React.Component {
 
   maintainAuth(token) {
 
-    console.log(`Got Token: ${token}`);
+    // console.log(`Got Token: ${token}`);
 
     // Persist token
     window.localStorage.setItem('token', token);
@@ -96,7 +96,7 @@ class App extends React.Component {
 
     window.localStorage.removeItem('token');
 
-    console.log('Destroy Token');
+    // console.log('Destroy Token');
   }
 
   render() {
