@@ -1,6 +1,6 @@
 # Scribblez
 
-[Live Demo](https://scribblez-client.herokuapp.com/)
+[Live Demo](https://thebinarypenguin-scribblez-client.now.sh/)
 
 ## Summary
 
