@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "thebinarypenguin-scribblez-client",
+  "alias": "scribblez-client",
   "name": "scribblez-client",
   "routes": [
       {
