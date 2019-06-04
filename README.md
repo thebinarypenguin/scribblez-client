@@ -1,5 +1,7 @@
 # Scribblez
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thebinarypenguin/scribblez-client.svg)](https://greenkeeper.io/)
+
 [Live Demo](https://scribblez-client.now.sh/)
 
 ## Summary
